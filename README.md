@@ -1,63 +1,54 @@
+# React + TypeScript + Vite
 
-    Criar lógica para interpretar comandos tipo changeBackground, playMusic, etc.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-📌 Objetivo: Uma cena carregável com falas, fundo e música.
-💾 FASE 4 — Sistema de Save/Load (Dias 6–7)
+Currently, two official plugins are available:
 
-Criar SaveManager usando localStorage
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Criar SaveSlot para salvar e carregar cenas
+## Expanding the ESLint configuration
 
-    Criar botão de salvar e carregar durante o jogo
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-📌 Objetivo: Jogador pode salvar e continuar depois.
-🛠️ FASE 5 — Sistema de Opções (Dia 8)
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-Tela de configurações com:
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Volume da música
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Velocidade do texto
-
-    Texto automático (sim/não)
-
-    Salvar as opções no localStorage
-
-📌 Objetivo: Personalização da experiência pelo jogador.
-🖼️ FASE 6 — Personagens e Sprites (Dias 9–10)
-
-Criar CharacterSprite com expressões e posições
-
-Permitir múltiplos personagens em cena
-
-    Criar pasta public/characters/ com os sprites
-
-📌 Objetivo: Diálogo com personagens visíveis na tela.
-🧩 FASE 7 — Menus e Navegação (Dias 11–12)
-
-Criar tela inicial com:
-
-Novo Jogo
-
-Carregar Jogo
-
-    Opções
-
-    Criar lógica de navegação entre telas (Menu, Game, Options)
-
-📌 Objetivo: Estrutura de navegação e experiência completa de jogo.
-🌳 FASE 8 — Expansão de Conteúdo (Contínuo)
-
-Criar cenas separadas por capítulos
-
-Criar função para facilitar criação de falas
-
-Criar transições visuais entre cenas
-
-Adicionar efeitos sonoros e trilhas
-
-Criar sistema de escolha de múltipla resposta
-
-    Documentar como criar novas cenas rapidamente
-
-📌 Objetivo: Escalar o conteúdo de forma organizada.
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
