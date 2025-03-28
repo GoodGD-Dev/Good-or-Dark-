@@ -1,45 +1,13 @@
 {
-  "name": "my-app",
+  "name": "darknovel",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write ."
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "react",
-      "react-hooks",
-      "@typescript-eslint"
-    ],
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
-    }
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint src --ext ts,tsx --fix",
+  "format": "prettier --write \"src/**/*.{ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
