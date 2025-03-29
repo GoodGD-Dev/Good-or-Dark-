@@ -1,13 +1,14 @@
-import * as S from './style'
+import * as S from './style';
+import { Link } from 'react-router-dom';
 
 const StartMenu = () => {
   return (
     <S.MenuContainer>
       <S.MenuNav>
         <S.MenuUl>
-          <S.MenuLi><a href="#">New Game</a></S.MenuLi>
-          <S.MenuLi><a href="#">Load Game</a></S.MenuLi>
-          <S.MenuLi><a href="#">Settings</a></S.MenuLi>
+          <S.MenuLi><Link to="/sinopse">New Game</Link></S.MenuLi>
+          <S.MenuLi><Link to="#">Load Game</Link></S.MenuLi>
+          <S.MenuLi><Link to="#">Settings</Link></S.MenuLi>
         </S.MenuUl>
       </S.MenuNav>
       <S.MenuSection>
@@ -22,4 +23,4 @@ const StartMenu = () => {
   )
 }
 
-export default StartMenu
+export default StartMenu;

@@ -12,6 +12,7 @@ const EstiloGlobal = createGlobalStyle`
 
     a {
       text-decoration: none;
+      color: #ffffff;
       &:visited, :active {
         color: inherit;
       }
@@ -19,7 +20,7 @@ const EstiloGlobal = createGlobalStyle`
   }
 
   body {
-    height: 100vh;
+    min-height: 100vh;
     font-family: Roboto, sans-serif;
     background-color: ${variaveis.backgroundScreen};
     color: #ffffff;
@@ -35,9 +36,7 @@ export const Container = styled.div`
 export const Background = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-
+  min-height: 100vh;
   &::before {
     content: "";
     position: absolute;
@@ -48,9 +47,11 @@ export const Background = styled.div`
     background-image: url('/concept.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     filter: blur(10px);
-    z-index: 0;
+    z-index: -1;
   }
 `
+
 
 export default EstiloGlobal

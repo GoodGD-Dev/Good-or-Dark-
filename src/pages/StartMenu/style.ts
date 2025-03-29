@@ -6,15 +6,27 @@ const alternarCores = keyframes`
   100% { color: #501b10; }
 `
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
 export const MenuContainer = styled.div`
   position: relative;
   z-index: 1;
   height: 100vh;
+  min-height: 960px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 12%;
+  padding: 25rem;
   background-image: url('/concept.png');
   background-size: cover;
   background-position: center;
@@ -22,6 +34,7 @@ export const MenuContainer = styled.div`
   font-weight: 400;
   font-style: normal;
   backdrop-filter: none;
+  animation: ${fadeIn} 2s ease-in-out;
 `
 
 export const MenuNav = styled.nav`
@@ -30,7 +43,7 @@ export const MenuNav = styled.nav`
 export const MenuUl = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 2vh;
+  gap: 1rem;
 `
 
 export const MenuLi = styled.li`
